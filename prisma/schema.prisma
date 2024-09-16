@@ -8,15 +8,16 @@ datasource db {
 }
 
 model Product {
-  id          Int       @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   name        String
   description String?
   price       Float
   quantity    Int
   images      Image[]
   sale        Sale?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  orderItems  OrderItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }
 
 model Image {
@@ -38,4 +39,56 @@ model Sale {
   product   Product  @relation(fields: [productId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id                  Int         @id @default(autoincrement())
+  status              OrderStatus
+  total               Float
+  items               OrderItem[]
+  customerName        String
+  customerEmail       String
+  customerPhone       String?
+  shippingAddress     Json
+  billingAddress      Json?
+  paymentMethod       String
+  paymentStatus       PaymentStatus
+  paymentTransactionId String?
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  quantity  Int
+  price     Float
+  orderId   Int
+  order     Order    @relation(fields: [orderId], references: [id])
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+model DashboardStats {
+  id            Int      @id @default(autoincrement())
+  totalProducts Int
+  totalOrders   Int
+  totalRevenue  Float
+  updatedAt     DateTime @updatedAt
 }
