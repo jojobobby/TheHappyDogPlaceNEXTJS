@@ -5,7 +5,7 @@ import Providers from './components/Providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Pawsome Pals',
+  title: 'TheHappyDogPlace',
   description: 'Shop for your furry friends',
 }
 
