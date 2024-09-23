@@ -18,16 +18,16 @@ async function getProducts() {
 }
 
 export default async function ProductsPage() {
-  const products = await getProducts()
+  const products = await getProducts();
 
   return (
-    <div className="bg-cream-100 dark:bg-gray-900 min-h-screen py-12">
+    <div className="bg-white dark:bg-gray-800 min-h-screen py-12"> {/* Change background here */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-8 text-center">
+        <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center"> {/* Neutral text */}
           Our Products
         </h1>
         <ProductList initialProducts={products} />
       </div>
     </div>
-  )
+  );
 }

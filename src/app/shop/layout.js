@@ -7,7 +7,7 @@ import CartDisplay from '../components/CartDisplay';
 const Layout = ({ children }) => {
   return (
     <CartProvider>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen font-sans">
         <header className="bg-gray-900 text-white p-4">
           <div className="container mx-auto flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105">
@@ -28,21 +28,21 @@ const Layout = ({ children }) => {
             <div className="flex flex-wrap justify-center items-center space-x-6">
               <Link 
                 href="/support" 
-                className="flex items-center text-sm hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
               >
                 <HelpCircle className="mr-2" size={20} />
                 <span>Support</span>
               </Link>
               <Link 
                 href="/track-package" 
-                className="flex items-center text-sm hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
               >
                 <Package className="mr-2" size={20} />
                 <span>Track Package</span>
               </Link>
               <Link 
                 href="/terms-of-service" 
-                className="flex items-center text-sm hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out transform hover:scale-105"
               >
                 <FileText className="mr-2" size={20} />
                 <span>Terms of Service</span>

@@ -12,3 +12,33 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  animation: scroll 15s linear infinite; /* Speed of scrolling */
+  gap: 16px; /* Space between images */
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+  width: calc(100% / 2); /* Ensures each image is half of the available width */
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
